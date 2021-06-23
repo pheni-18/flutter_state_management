@@ -1,16 +1,14 @@
 # flutter_state_management
 
-A new Flutter project.
+A practice of state management.
 
-## Getting Started
+Use packages
 
-This project is a starting point for a Flutter application.
+- [Riverpod](https://riverpod.dev/)
+- [StateNotifier](https://pub.dev/packages/state_notifier)
+- [Freezed](https://pub.dev/packages/freezed)
 
-A few resources to get you started if this is your first Flutter project:
+### Versions
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Dart: 2.10.5
+- Flutter: 1.22.6
