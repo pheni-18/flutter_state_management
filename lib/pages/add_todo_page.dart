@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:flutter_state_management/models/todos_controller.dart';
 
-class AddTodoPage extends HookWidget {
+class AddTodoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String _newTitle;

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:flutter_state_management/models/todos_controller.dart';
 
-class TodoTile extends HookWidget {
+class TodoTile extends StatelessWidget {
   final todo;
 
   const TodoTile({this.todo});
