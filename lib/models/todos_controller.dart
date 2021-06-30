@@ -24,4 +24,10 @@ class TodosController extends StateNotifier<TodosState> {
       ],
     );
   }
+
+  void remove(Todo target) {
+    state = state.copyWith(
+      todos: state.todos.where((todo) => todo.id != target.id).toList(),
+    );
+  }
 }

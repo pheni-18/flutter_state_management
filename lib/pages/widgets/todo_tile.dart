@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class TodoTile extends StatelessWidget {
+import 'package:flutter_state_management/models/todos_controller.dart';
+
+class TodoTile extends HookWidget {
   final todo;
 
   const TodoTile({this.todo});
@@ -9,7 +13,9 @@ class TodoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
-      onLongPress: () {},
+      onLongPress: () {
+        context.read(todosProvider).remove(this.todo);
+      },
       child: Container(
         height: 100.0,
         child: Card(
@@ -21,7 +27,6 @@ class TodoTile extends StatelessWidget {
               this.todo.title,
               textAlign: TextAlign.left,
               style: TextStyle(
-                // color: Colors.white,
                 fontSize: 20.0,
               ),
             ),
