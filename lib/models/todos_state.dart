@@ -8,6 +8,6 @@ part 'todos_state.freezed.dart';
 abstract class TodosState with _$TodosState {
   const factory TodosState({
     @Default(<Todo>[]) List<Todo> todos,
+    @Default(true) bool isLoading,
   }) = _TodosState;
-  // const factory TodosState.loading() = TodosStateLoading;
 }

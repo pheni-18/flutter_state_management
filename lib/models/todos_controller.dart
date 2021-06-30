@@ -16,6 +16,7 @@ class TodosController extends StateNotifier<TodosState> {
     () async {
       state = state.copyWith(
         todos: await todosRepository.fetchTodos(),
+        isLoading: false,
       );
     }();
   }

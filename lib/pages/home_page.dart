@@ -6,16 +6,20 @@ import 'package:flutter_state_management/models/todos_controller.dart';
 import 'widgets/todo_tile.dart';
 import 'add_todo_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends HookWidget {
   const HomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final todosState = useProvider(todosProvider.state);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Flutter State Management'),
       ),
-      body: _ListView(),
+      body: todosState.isLoading
+          ? Center(child: CircularProgressIndicator())
+          : _ListView(),
       floatingActionButton: _FAB(),
     );
   }
