@@ -15,10 +15,13 @@ dependencies:
   hooks_riverpod: ^0.12.4
   freezed: ^0.12.7
   freezed_annotation:
+  uuid: ^2.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  build_runner:
 
 flutter:
   uses-material-design: true
