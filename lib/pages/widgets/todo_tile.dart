@@ -12,10 +12,8 @@ class TodoTile extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
-      onLongPress: () {
-        context.read(todosProvider).remove(this.todo);
-      },
+      onDoubleTap: () => context.read(todosProvider).toggle(this.todo.id),
+      onLongPress: () => context.read(todosProvider).remove(this.todo.id),
       child: Container(
         height: 100.0,
         child: Card(
@@ -28,6 +26,7 @@ class TodoTile extends HookWidget {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 20.0,
+                decoration: todo.done ? TextDecoration.lineThrough : null,
               ),
             ),
           ),

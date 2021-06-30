@@ -25,9 +25,23 @@ class TodosController extends StateNotifier<TodosState> {
     );
   }
 
-  void remove(Todo target) {
+  void toggle(String id) {
     state = state.copyWith(
-      todos: state.todos.where((todo) => todo.id != target.id).toList(),
+      todos: state.todos
+          .map((todo) => todo.id == id
+              ? Todo(
+                  id: todo.id,
+                  title: todo.title,
+                  done: !todo.done,
+                )
+              : todo)
+          .toList(),
+    );
+  }
+
+  void remove(String id) {
+    state = state.copyWith(
+      todos: state.todos.where((todo) => todo.id != id).toList(),
     );
   }
 }
