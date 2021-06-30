@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:flutter_state_management/models/todos_controller.dart';
+import 'widgets/todo_form.dart';
 
 class AddTodoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String _newTitle;
-
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -19,31 +16,7 @@ class AddTodoPage extends StatelessWidget {
             topRight: Radius.circular(20.0),
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            TextField(
-              autofocus: true,
-              textAlign: TextAlign.center,
-              onChanged: (newText) {
-                _newTitle = newText;
-              },
-            ),
-            FlatButton(
-              child: Text(
-                'Add',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              color: Colors.blue[400],
-              onPressed: () {
-                context.read(todosProvider).add(_newTitle);
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+        child: TodoForm(),
       ),
     );
   }

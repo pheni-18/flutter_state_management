@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:flutter_state_management/models/todos_controller.dart';
 import 'widgets/todo_tile.dart';
+import 'widgets/todo_form_controller.dart';
 import 'add_todo_page.dart';
 
 class HomePage extends HookWidget {
@@ -42,7 +43,7 @@ class _FAB extends StatelessWidget {
               child: AddTodoPage(),
             ),
           ),
-        );
+        ).then((_) => context.read(todoFormProvider).clear());
       },
       child: const Icon(Icons.add),
     );
