@@ -1,15 +1,24 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
+import 'package:flutter_state_management/repositories/todos.dart';
 import 'todo.dart';
 import 'todos_state.dart';
 
 final todosProvider = StateNotifierProvider<TodosController>(
-  (ref) => TodosController(),
+  (ref) => TodosController(ref.watch(todosRepositoryProvider)),
 );
 
 class TodosController extends StateNotifier<TodosState> {
-  TodosController() : super(TodosState());
+  final TodosRepository todosRepository;
+
+  TodosController(this.todosRepository) : super(TodosState()) {
+    () async {
+      state = state.copyWith(
+        todos: await todosRepository.fetchTodos(),
+      );
+    }();
+  }
 
   final _uuid = Uuid();
 
