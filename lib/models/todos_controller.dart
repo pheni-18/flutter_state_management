@@ -6,13 +6,11 @@ import 'todo.dart';
 import 'todos_state.dart';
 
 final todosProvider = StateNotifierProvider<TodosController>(
-  (ref) => TodosController(ref.watch(todosRepositoryProvider)),
+  (ref) => TodosController(ref.read),
 );
 
 class TodosController extends StateNotifier<TodosState> {
-  final TodosRepository todosRepository;
-
-  TodosController(this.todosRepository) : super(TodosState()) {
+  TodosController(this._read) : super(TodosState()) {
     () async {
       state = state.copyWith(
         todos: await todosRepository.fetchTodos(),
@@ -21,7 +19,11 @@ class TodosController extends StateNotifier<TodosState> {
     }();
   }
 
+  final Reader _read;
+
   final _uuid = Uuid();
+
+  TodosRepository get todosRepository => _read(todosRepositoryProvider);
 
   void add(String title) {
     state = state.copyWith(
