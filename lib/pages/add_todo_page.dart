@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/todo_form.dart';
+import 'todo_form/todo_form.dart';
 
 class AddTodoPage extends StatelessWidget {
   @override

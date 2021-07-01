@@ -3,8 +3,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:flutter_state_management/models/todos_controller.dart';
-import 'widgets/todo_tile.dart';
-import 'widgets/todo_form_controller.dart';
+import 'todo_tile/todo_tile.dart';
+import 'todo_form/todo_form_controller.dart';
 import 'add_todo_page.dart';
 
 class HomePage extends HookWidget {
